@@ -88,6 +88,11 @@ function Game() {
       });
       polylineRef.current.setMap(mapRef.current);
 
+      // Fit the map to the polyline bounds
+      const bounds = new window.google.maps.LatLngBounds();
+      path.forEach((point) => bounds.extend(point));
+      mapRef.current.fitBounds(bounds);
+
       setDistances([...distances, distance]);
       setAllPolylines([...allPolylines, path]);
       setAllMarkers([...allMarkers, { guessLocation, streetViewPosition }]);
@@ -104,7 +109,7 @@ function Game() {
   const playAgain = () => {
     setIsModalOpen(false);
     setGuessLocation(null);
-    setDistancePath(null); 
+    setDistancePath(null);
     setDistance(null);
     if (polylineRef.current) {
       polylineRef.current.setMap(null); // Removes the existing polyline from the map
