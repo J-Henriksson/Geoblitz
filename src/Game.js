@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './mapstyles.css';
 import api from './config/api';
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, Polyline } from "@react-google-maps/api";
 import Modal from 'react-modal';
 
 const libraries = ["places"];
@@ -19,6 +19,11 @@ function Game() {
   const [distancePath, setDistancePath] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [distance, setDistance] = useState(null);
+  const [round, setRound] = useState(0);
+  const [distances, setDistances] = useState([]);
+  const [allPolylines, setAllPolylines] = useState([]);
+  const [allMarkers, setAllMarkers] = useState([]);
+  const [summaryModalOpen, setSummaryModalOpen] = useState(false);
   const polylineRef = useRef(null); // Reference to the polyline
 
   // Variables for saving the map view so that it doesn't reset when it updates
@@ -81,7 +86,16 @@ function Game() {
       });
       polylineRef.current.setMap(mapRef.current);
 
-      setIsModalOpen(true);
+      setDistances([...distances, distance]);
+      setAllPolylines([...allPolylines, path]);
+      setAllMarkers([...allMarkers, { guessLocation, streetViewPosition }]);
+      setRound(round + 1);
+
+      if (round + 1 === 5) {
+        setSummaryModalOpen(true);
+      } else {
+        setIsModalOpen(true);
+      }
     }
   };
 
@@ -106,6 +120,15 @@ function Game() {
         });
       })
       .catch((error) => console.error("Failed to get random street view position:", error));
+  };
+
+  const resetGame = () => {
+    setSummaryModalOpen(false);
+    setRound(0);
+    setDistances([]);
+    setAllPolylines([]);
+    setAllMarkers([]);
+    playAgain();
   };
 
   const getRandomCoordinate = (min, max) => {
@@ -158,6 +181,8 @@ function Game() {
 
   if (loadError) return "Error loading maps";
 
+  const averageDistance = distances.reduce((a, b) => a + b, 0) / distances.length;
+
   return (
     <div className="game-container">
       <div className="streetview-container" ref={streetViewRef} />
@@ -195,6 +220,31 @@ function Game() {
               }} />
             </>
           )}
+          {summaryModalOpen && (
+            <>
+              {allMarkers.map((marker, index) => (
+                <React.Fragment key={index}>
+                  <Marker position={marker.guessLocation} icon={{
+                    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                  }} />
+                  <Marker position={marker.streetViewPosition} icon={{
+                    url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                  }} />
+                </React.Fragment>
+              ))}
+              {allPolylines.map((path, index) => (
+                <Polyline
+                  key={index}
+                  path={path}
+                  options={{
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                  }}
+                />
+              ))}
+            </>
+          )}
         </GoogleMap>
         <button className="button" onClick={confirmGuess}>
           Confirm Guess
@@ -209,6 +259,17 @@ function Game() {
       >
         <h3>You are {Math.round(distance && distance.toFixed(2))} km away</h3>
         <button className="play-again-button" onClick={playAgain}>Play Again</button>
+      </Modal>
+      <Modal
+        isOpen={summaryModalOpen}
+        onRequestClose={resetGame}
+        contentLabel="Summary Result"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <h3>Summary of last 5 rounds:</h3>
+        <p>Average Distance: {averageDistance.toFixed(2)} km</p>
+        <button className="play-again-button" onClick={resetGame}>Play Again</button>
       </Modal>
     </div>
   );
