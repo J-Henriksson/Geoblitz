@@ -50,6 +50,34 @@
   z-index: 9;
 }
 
+h3.summary-header {
+  margin-bottom: 40px; 
+}
+
+.next-round-button {
+  position: absolute;
+  bottom: 10px;
+  left: 120px;
+  z-index: 1;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 15px;
+  background-color: #0e24ee;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.next-round-button:hover {
+  transform: scale(1.1);
+}
+
+.next-round-button:active {
+  background-color: #007B9E;
+}
+
 .play-again-button {
   position: absolute;
   bottom: 10px;

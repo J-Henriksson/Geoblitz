@@ -123,12 +123,7 @@ function Game() {
   };
 
   const resetGame = () => {
-    setSummaryModalOpen(false);
-    setRound(0);
-    setDistances([]);
-    setAllPolylines([]);
-    setAllMarkers([]);
-    playAgain();
+    window.location.reload();
   };
 
   const getRandomCoordinate = (min, max) => {
@@ -258,7 +253,7 @@ function Game() {
         overlayClassName="overlay"
       >
         <h3>You are {Math.round(distance && distance.toFixed(2))} km away</h3>
-        <button className="play-again-button" onClick={playAgain}>Play Again</button>
+        <button className="next-round-button" onClick={playAgain}>Next</button>
       </Modal>
       <Modal
         isOpen={summaryModalOpen}
@@ -267,8 +262,8 @@ function Game() {
         className="modal"
         overlayClassName="overlay"
       >
-        <h3>Summary of last 5 rounds:</h3>
-        <p>Average Distance: {averageDistance.toFixed(2)} km</p>
+        <h3>5 round summary</h3>
+        <h3 class="summary-header">Average Distance: {Math.round(averageDistance.toFixed(2))} km</h3>
         <button className="play-again-button" onClick={resetGame}>Play Again</button>
       </Modal>
     </div>
