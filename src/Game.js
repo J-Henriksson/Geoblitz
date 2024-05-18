@@ -49,14 +49,16 @@ function Game() {
   }, [isLoaded]);
 
   const onMapClick = (e) => {
-    setGuessLocation({
-      lat: e.latLng.lat(),
-      lng: e.latLng.lng(),
-    });
-    setDistancePath(null); // Resets the path when a new guess is made
-    if (polylineRef.current) {
-      polylineRef.current.setMap(null); // Removes the existing polyline from the map (if there is one)
-      polylineRef.current = null;
+    if (!isModalOpen && !summaryModalOpen) {
+      setGuessLocation({
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+      });
+      setDistancePath(null); // Resets the path when a new guess is made
+      if (polylineRef.current) {
+        polylineRef.current.setMap(null); // Removes the existing polyline from the map (if there is one)
+        polylineRef.current = null;
+      }
     }
   };
 
