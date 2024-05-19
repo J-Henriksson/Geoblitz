@@ -88,6 +88,11 @@ function Game() {
       });
       polylineRef.current.setMap(mapRef.current);
 
+      // Fit the map to the polyline bounds
+      const bounds = new window.google.maps.LatLngBounds();
+      path.forEach((point) => bounds.extend(point));
+      mapRef.current.fitBounds(bounds);
+
       setDistances([...distances, distance]);
       setAllPolylines([...allPolylines, path]);
       setAllMarkers([...allMarkers, { guessLocation, streetViewPosition }]);
@@ -95,6 +100,7 @@ function Game() {
 
       if (round + 1 === 5) {
         setSummaryModalOpen(true);
+        fitMapToSummaryBounds(); // Fit the map to bounds when showing summary
       } else {
         setIsModalOpen(true);
       }
@@ -104,7 +110,7 @@ function Game() {
   const playAgain = () => {
     setIsModalOpen(false);
     setGuessLocation(null);
-    setDistancePath(null); 
+    setDistancePath(null);
     setDistance(null);
     if (polylineRef.current) {
       polylineRef.current.setMap(null); // Removes the existing polyline from the map
@@ -175,6 +181,20 @@ function Game() {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c; // Distance in km
   };
+
+  const fitMapToSummaryBounds = () => {
+    const bounds = new window.google.maps.LatLngBounds();
+    allPolylines.forEach((path) => {
+      path.forEach((point) => bounds.extend(point));
+    });
+    mapRef.current.fitBounds(bounds);
+  };
+
+  useEffect(() => {
+    if (summaryModalOpen) {
+      fitMapToSummaryBounds();
+    }
+  }, [summaryModalOpen]);
 
   if (loadError) return "Error loading maps";
 
@@ -273,3 +293,4 @@ function Game() {
 }
 
 export default Game;
+
