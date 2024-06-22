@@ -26,7 +26,7 @@ Open your terminal and clone the repository by running:
    git clone "link to this repo"
    ```
  
-Navigate to the cloned repository folder, then replace the placeholder value in the GOOGLE_MAPS_API_KEY variable with your newly acquired API key.
+Navigate to the cloned repository folder, locate the .env.example file, rename it to .env, and replace the placeholder value in the GOOGLE_MAPS_API_KEY variable with your newly acquired API key.
 
 ### 3. Install dependencies
 
