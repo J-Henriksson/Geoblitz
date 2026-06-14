@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#2b6cb0"/>
+  <!-- continents -->
+  <path d="M14 22c4-3 9-2 12 1s2 7-2 8-7 0-9-3-3-5-1-6z" fill="#48bb78"/>
+  <path d="M36 16c3-1 8 0 9 4s-2 6-5 6-5-2-6-5 0-4 2-5z" fill="#48bb78"/>
+  <path d="M30 36c5-2 11 0 13 4s-1 8-6 8-10-2-11-6 1-5 4-6z" fill="#48bb78"/>
+  <!-- meridian + equator -->
+  <g fill="none" stroke="#e6f3ff" stroke-width="2" opacity="0.55">
+    <circle cx="32" cy="32" r="30"/>
+    <ellipse cx="32" cy="32" rx="12" ry="30"/>
+    <line x1="2" y1="32" x2="62" y2="32"/>
+  </g>
+</svg>

@@ -1,0 +1,602 @@
+[
+  {
+    "lat": 50.315193,
+    "lng": 11.918388,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Mapillary_%28CfoLE8tFA1jaX0sKlJkGwc%29_%28frke%29_2024-10-17_14H16mn00s000.jpg/1920px-Mapillary_%28CfoLE8tFA1jaX0sKlJkGwc%29_%28frke%29_2024-10-17_14H16mn00s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 64.81299167,
+    "lng": -147.74729778,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Mapillary_%28kinneyeng%29_2018-06-26_14H45M54S000_%281445257279155923_at_hbcl3rvpmo22mj5cpu0m6x_with_Trimble_MX7%29.jpg/1920px-Mapillary_%28kinneyeng%29_2018-06-26_14H45M54S000_%281445257279155923_at_hbcl3rvpmo22mj5cpu0m6x_with_Trimble_MX7%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 49.46135777,
+    "lng": 11.04383974,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Mapillary_%28ZXStreetview%29_2024-09-04_20H08M16S034_%28855360116703279_at_RT2Zf6xDMs4wQS0riECUyq_with_none%29.jpg/1920px-Mapillary_%28ZXStreetview%29_2024-09-04_20H08M16S034_%28855360116703279_at_RT2Zf6xDMs4wQS0riECUyq_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.23931721,
+    "lng": 11.77891568,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mapillary_%28osmplus_org%29_2025-12-11_10H54M14S080_%28859999803418778_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H54M14S080_%28859999803418778_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.56061883,
+    "lng": 12.44740148,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mapillary_%28osmplus_org%29_2024-12-29_11H16M00S166_%281174756887542866_at_pgsJvjKYzAHyBVruSb1UdG%29.jpg/1920px-Mapillary_%28osmplus_org%29_2024-12-29_11H16M00S166_%281174756887542866_at_pgsJvjKYzAHyBVruSb1UdG%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.6063414,
+    "lng": -122.3376953,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mapillary_%28uwrapid%29_2021-08-20_12H20M32S000_%28159587080237321_at_pxQ9k27PvbBnIXZLdMOfK3_with_NCTECH_LTD_iSTAR_Pulsar%29.jpg/1920px-Mapillary_%28uwrapid%29_2021-08-20_12H20M32S000_%28159587080237321_at_pxQ9k27PvbBnIXZLdMOfK3_with_NCTECH_LTD_iSTAR_Pulsar%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 26.5492409,
+    "lng": -81.9931455,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mapillary_%28uwrapid%29_2022-10-02_15H05M47S000_%28899737422071618_at_0eIyaKDosYQ42N1rBGxZqg%29.jpg/1920px-Mapillary_%28uwrapid%29_2022-10-02_15H05M47S000_%28899737422071618_at_0eIyaKDosYQ42N1rBGxZqg%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1695313,
+    "lng": -118.0500459,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mapillary_%28uwrapid%29_2025-09-24_21H39M06S000_%281513931069749605_at_FPR6idaTWqe4wogsD7hC5Z%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_21H39M06S000_%281513931069749605_at_FPR6idaTWqe4wogsD7hC5Z%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 28.139647,
+    "lng": -15.431081,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mapillary_%281669863946736749%2C_ZX3oww2zmjij7LcjtSBZhw%29_%28javiersanp%29_2018-08-19_08H47M43S000.jpg/1920px-Mapillary_%281669863946736749%2C_ZX3oww2zmjij7LcjtSBZhw%29_%28javiersanp%29_2018-08-19_08H47M43S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 48.13444561,
+    "lng": 11.39932144,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Mapillary_%28osmplus_org%29_2026-03-20_05H23M14S750_%281396931115517692_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-03-20_05H23M14S750_%281396931115517692_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.266546,
+    "lng": 29.884113,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/PANO_20210424_115704_4.jpg/1920px-PANO_20210424_115704_4.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.30747,
+    "lng": 11.926634,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mapillary_%28NlBgDSP4bEinQeckW6a5u0%29_%28frke%29_2024-08-08_13H26mn03s000.jpg/1920px-Mapillary_%28NlBgDSP4bEinQeckW6a5u0%29_%28frke%29_2024-08-08_13H26mn03s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 43.38741164,
+    "lng": -5.82844654,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mapillary_%283SDEjMHmtZGoVdlvOhsqp5%29_%28sanjorgepinho%29_2025-07-26_12H30M12S480.jpg/1920px-Mapillary_%283SDEjMHmtZGoVdlvOhsqp5%29_%28sanjorgepinho%29_2025-07-26_12H30M12S480.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.79746874,
+    "lng": -73.91674744,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H55M14S853.jpg/1920px-Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H55M14S853.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.54885133,
+    "lng": 12.10068262,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Mapillary_%28osmplus_org%29_2026-02-12_10H18M45S416_%28914482581039948_at_0mjlsG5XgZWEB2J8LupSca%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H18M45S416_%28914482581039948_at_0mjlsG5XgZWEB2J8LupSca%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 41.1426892,
+    "lng": -8.6020292,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mapillary_%286FDT7i1xndOjK2JChYz9y5%29_%28skfd%29_2022-02-20_15H43M34S000.jpg/1920px-Mapillary_%286FDT7i1xndOjK2JChYz9y5%29_%28skfd%29_2022-02-20_15H43M34S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.741238,
+    "lng": 11.0246763,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mapillary_%28Hol_Ger%29_2025-09-06_06H19M28S000_%281338067221047709_at_WZ59iBIpuQVDRhPbwYFl3s_with_Arashi_Vision_insta360_x4%29.jpg/1920px-Mapillary_%28Hol_Ger%29_2025-09-06_06H19M28S000_%281338067221047709_at_WZ59iBIpuQVDRhPbwYFl3s_with_Arashi_Vision_insta360_x4%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1642669,
+    "lng": -118.0772068,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mapillary_%28uwrapid%29_2025-09-24_23H04M58S000_%282034040890783923_at_Iepi9DT8qUOdxNzWr2LgRH%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_23H04M58S000_%282034040890783923_at_Iepi9DT8qUOdxNzWr2LgRH%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.171623,
+    "lng": -118.0662497,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mapillary_%28uwrapid%29_2025-09-24_22H21M51S000_%28811321128349349_at_j5MbaRXdmV32iqcgSoLzup%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_22H21M51S000_%28811321128349349_at_j5MbaRXdmV32iqcgSoLzup%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 42.340011,
+    "lng": -3.7029792,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Mapillary_%281935721796997536%2C_0gLcehts6nGQozO8EFWdRv%29_%28sanjorgepinho%29_2025-09-04_07H59M54S000.jpg/1920px-Mapillary_%281935721796997536%2C_0gLcehts6nGQozO8EFWdRv%29_%28sanjorgepinho%29_2025-09-04_07H59M54S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 64.83420944,
+    "lng": -147.83405917,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Mapillary_%28kinneyeng%29_2018-06-06_17H17M22S000_%28824844721492239_at_wse7afi1jmtger7yg48egj_with_Trimble_MX7%29.jpg/1920px-Mapillary_%28kinneyeng%29_2018-06-06_17H17M22S000_%28824844721492239_at_wse7afi1jmtger7yg48egj_with_Trimble_MX7%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 64.83685944,
+    "lng": -147.79845778,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mapillary_%28kinneyeng%29_2018-09-12_01H32M06S000_%28313202176906984_at_1hw1w0wz71frf8wi1arxjg_with_Trimble_MX7%29.jpg/1920px-Mapillary_%28kinneyeng%29_2018-09-12_01H32M06S000_%28313202176906984_at_1hw1w0wz71frf8wi1arxjg_with_Trimble_MX7%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.05807975,
+    "lng": 12.814742,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mapillary_%28osmplus_org%29_2025-10-18_09H22M50S416_%281540973710514162_at_tuAoma1hQNEjq5GiRbxCfl_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-10-18_09H22M50S416_%281540973710514162_at_tuAoma1hQNEjq5GiRbxCfl_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.36438975,
+    "lng": 21.19921195,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Mapillary_%28gmap%29_2024-03-14_13H39M35S166_%28307415158715684_at_We0UFtyYzni6ruJkf3BM5D_with_GoPro_GoPro_Max%29.jpg/1920px-Mapillary_%28gmap%29_2024-03-14_13H39M35S166_%28307415158715684_at_We0UFtyYzni6ruJkf3BM5D_with_GoPro_GoPro_Max%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 37.81633256,
+    "lng": -88.43480393,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mapillary_%28dalehat%29_2026-01-23_18H30M16S415_%28870898795750882_at_1yzOtfBGZeRVmYJ5MlPhW9_with_GoPro_MAX2%29.jpg/1920px-Mapillary_%28dalehat%29_2026-01-23_18H30M16S415_%28870898795750882_at_1yzOtfBGZeRVmYJ5MlPhW9_with_GoPro_MAX2%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.55051888,
+    "lng": 12.10617517,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mapillary_%28osmplus_org%29_2026-02-12_10H19M50S750_%28880187531448425_at_0mjlsG5XgZWEB2J8LupSca%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H19M50S750_%28880187531448425_at_0mjlsG5XgZWEB2J8LupSca%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.53037953,
+    "lng": 12.08084473,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Mapillary_%28osmplus_org%29_2026-02-12_10H53M53S333_%281338867224927705_at_wjiCfhnJ9mzXQG4UFPagNk.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H53M53S333_%281338867224927705_at_wjiCfhnJ9mzXQG4UFPagNk.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.54319721,
+    "lng": 12.11568238,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Mapillary_%28osmplus_org%29_2026-02-12_10H52M05S083_%28838896199203430_at_wjiCfhnJ9mzXQG4UFPagNk.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H52M05S083_%28838896199203430_at_wjiCfhnJ9mzXQG4UFPagNk.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1720239,
+    "lng": -118.0683241,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mapillary_%28uwrapid%29_2025-09-24_22H31M10S000_%281472961073785253_at_7G5TlnH2xYFhkpNCWmEsV4%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_22H31M10S000_%281472961073785253_at_7G5TlnH2xYFhkpNCWmEsV4%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1727208,
+    "lng": -118.0535001,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mapillary_%28uwrapid%29_2025-09-24_21H42M02S000_%281735420697091093_at_HS2EaFNKBZkGgMnJLpszCt%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_21H42M02S000_%281735420697091093_at_HS2EaFNKBZkGgMnJLpszCt%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.337742,
+    "lng": 11.614631,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mapillary_%286Us4qB2YVtCyI08Pop7RHx%29_%28kopra%29_2024-09-13_10H31mn58s793.jpg/1920px-Mapillary_%286Us4qB2YVtCyI08Pop7RHx%29_%28kopra%29_2024-09-13_10H31mn58s793.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 64.82007333,
+    "lng": -147.87374472,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Mapillary_%28kinneyeng%29_2018-06-26_15H52M09S000_%28298725831708472_at_utkh5d7n0v1fmh9spsv0tg_with_Trimble_MX7%29.jpg/1920px-Mapillary_%28kinneyeng%29_2018-06-26_15H52M09S000_%28298725831708472_at_utkh5d7n0v1fmh9spsv0tg_with_Trimble_MX7%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 49.45567687,
+    "lng": 11.06664062,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mapillary_%28ZXStreetview%29_2024-09-04_20H01M34S799_%28544576011419074_at_RT2Zf6xDMs4wQS0riECUyq_with_none%29.jpg/1920px-Mapillary_%28ZXStreetview%29_2024-09-04_20H01M34S799_%28544576011419074_at_RT2Zf6xDMs4wQS0riECUyq_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.23045786,
+    "lng": 11.77788251,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mapillary_%28osmplus_org%29_2025-12-11_10H53M43S880_%282056998531819905_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H53M43S880_%282056998531819905_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 20.90003444,
+    "lng": -156.68114139,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mapillary_%28rking%29_2020-07-23_23H27M17S611_%281145470639212947_at_ekv9x436mm1r7rd6b49bag_with_Trimble_Trimble_MX7%29.jpg/1920px-Mapillary_%28rking%29_2020-07-23_23H27M17S611_%281145470639212947_at_ekv9x436mm1r7rd6b49bag_with_Trimble_Trimble_MX7%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.19374325,
+    "lng": 11.76801109,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mapillary_%28osmplus_org%29_2025-04-21_07H26M50S458_%281070079111830770_at_eJN031Xq4vmIChQbwZRPE7.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-21_07H26M50S458_%281070079111830770_at_eJN031Xq4vmIChQbwZRPE7.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.83361019,
+    "lng": -73.90034742,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H57M45S971.jpg/1920px-Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H57M45S971.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.52486515,
+    "lng": 12.07312326,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Mapillary_%28osmplus_org%29_2026-02-12_10H54M24S958_%28892802843350647_at_wjiCfhnJ9mzXQG4UFPagNk.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H54M24S958_%28892802843350647_at_wjiCfhnJ9mzXQG4UFPagNk.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 48.1332054,
+    "lng": 11.5739626,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mapillary_%28q5gads4%29_2022-10-15_13H13M21S000_%283206782749652482_at_HDYXCklE4hRdSfw0e5uIg1_with_GoPro_GoPro_Max%29.jpg/1920px-Mapillary_%28q5gads4%29_2022-10-15_13H13M21S000_%283206782749652482_at_HDYXCklE4hRdSfw0e5uIg1_with_GoPro_GoPro_Max%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.90587032,
+    "lng": 4.48743813,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Mapillary_%281501404127431561%2C_2xLVDRJEoAHer831c5Ffzi%29_%28tumblecow%29_2024-07-18_15H44M29S989.jpg/1920px-Mapillary_%281501404127431561%2C_2xLVDRJEoAHer831c5Ffzi%29_%28tumblecow%29_2024-07-18_15H44M29S989.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": -16.430933,
+    "lng": -40.061426,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Faz_Talism%C3%A3_10.jpg/1920px-Faz_Talism%C3%A3_10.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.320348,
+    "lng": 11.915094,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mapillary_%28cCyuGKUjeOqEFbzhLk6xH3%29_%28frke%29_2024-08-09_05H13mn38s000.jpg/1920px-Mapillary_%28cCyuGKUjeOqEFbzhLk6xH3%29_%28frke%29_2024-08-09_05H13mn38s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.41467317,
+    "lng": -3.69146067,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Mapillary_%28z8g5dgb5a0bvw81epgvi1x%29_%28thx%29_2016-12-21_09H00M41S000.jpg/1920px-Mapillary_%28z8g5dgb5a0bvw81epgvi1x%29_%28thx%29_2016-12-21_09H00M41S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.81960766,
+    "lng": -73.93298913,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H58M43S428.jpg/1920px-Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H58M43S428.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.8332947,
+    "lng": -73.89408353,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H57M29S621.jpg/1920px-Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H57M29S621.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.44995226,
+    "lng": 12.32743558,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Mapillary_%28osmplus_org%29_2026-02-10_11H38M53S791_%281422910076050102_at_dLOmNoxvTDZFUktERSB5sW%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-10_11H38M53S791_%281422910076050102_at_dLOmNoxvTDZFUktERSB5sW%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.52583059,
+    "lng": 12.07429921,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mapillary_%28osmplus_org%29_2026-02-12_10H32M22S458_%281921679145105759_at_MIotQ76iD3PULX4cCemhdy%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H32M22S458_%281921679145105759_at_MIotQ76iD3PULX4cCemhdy%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 45.75268837,
+    "lng": 4.85043252,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mapillary_%28CqfUrTGTDp8HkBfFeVU1Vw%29_%28simon_geovelo%29_2018-10-04_12H13M21S000.jpg/1920px-Mapillary_%28CqfUrTGTDp8HkBfFeVU1Vw%29_%28simon_geovelo%29_2018-10-04_12H13M21S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1741716,
+    "lng": -118.072838,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapillary_%28uwrapid%29_2025-09-24_22H27M23S000_%28803691172416546_at_z2qtFN4vyIjJnV3xRYomW1%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_22H27M23S000_%28803691172416546_at_z2qtFN4vyIjJnV3xRYomW1%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.93924584,
+    "lng": 6.96163521,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mapillary_%288Hst_CEibLR1AS9o6h1J5w%29_%28mura%29_2018-05-18_04H14M16S982.jpg/1920px-Mapillary_%288Hst_CEibLR1AS9o6h1J5w%29_%28mura%29_2018-05-18_04H14M16S982.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": -29.09449074,
+    "lng": 141.22549501,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Photo_from_Mapillary_2023-11-11_%28336312225854670%29.jpg/1920px-Photo_from_Mapillary_2023-11-11_%28336312225854670%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.219129,
+    "lng": 12.08180444,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Mapillary_%28osmplus_org%29_2025-04-28_10H54M19S416_%289766640116768507_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-28_10H54M19S416_%289766640116768507_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.06110076,
+    "lng": 13.507582,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mapillary_%28osmplus_org%29_2025-04-28_08H55M00S041_%283067674670055299_at_oOMx07Gl3TUXz82RFB4fJK%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-28_08H55M00S041_%283067674670055299_at_oOMx07Gl3TUXz82RFB4fJK%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 46.5498677,
+    "lng": -122.26990328,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mapillary_%28networklanman%29_2023-01-03_04H18M22S773_%281301623270415331_at_T9RV7alyjexWSYw1cDd6MH_with_Suzuki_DL1000%29.jpg/1920px-Mapillary_%28networklanman%29_2023-01-03_04H18M22S773_%281301623270415331_at_T9RV7alyjexWSYw1cDd6MH_with_Suzuki_DL1000%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 40.81676302,
+    "lng": -73.94819768,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H59M12S524.jpg/1920px-Mapillary_%28QnWbx9kEzmK3YoOhHsualP%29_%28hdevine825%29_2024-08-18_13H59M12S524.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.49595589,
+    "lng": 12.38877801,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mapillary_%28osmplus_org%29_2026-02-10_11H27M42S833_%28885297607693194_at_dLOmNoxvTDZFUktERSB5sW%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-10_11H27M42S833_%28885297607693194_at_dLOmNoxvTDZFUktERSB5sW%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.53299148,
+    "lng": 12.09204783,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Mapillary_%28osmplus_org%29_2026-02-12_10H53M20S958_%281421926239307447_at_wjiCfhnJ9mzXQG4UFPagNk.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H53M20S958_%281421926239307447_at_wjiCfhnJ9mzXQG4UFPagNk.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1677216,
+    "lng": -118.0653768,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Mapillary_%28uwrapid%29_2025-09-24_22H11M37S000_%282027280224705184_at_XgueAG1ZQvVyfj9R2LhCrT%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_22H11M37S000_%282027280224705184_at_XgueAG1ZQvVyfj9R2LhCrT%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1669195,
+    "lng": -118.0680955,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Mapillary_%28uwrapid%29_2025-09-24_22H10M58S000_%281096920305650679_at_PlB3FG4xRHgZuaTLkichJ1%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_22H10M58S000_%281096920305650679_at_PlB3FG4xRHgZuaTLkichJ1%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 42.23830198,
+    "lng": -8.72054279,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Mapillary_%281269897024721770%2C_b5BMeUWkFfJL0aPSgOucdr%29_%28EAPI%29_2025-07-10_07H51M23S547.jpg/1920px-Mapillary_%281269897024721770%2C_b5BMeUWkFfJL0aPSgOucdr%29_%28EAPI%29_2025-07-10_07H51M23S547.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.8394,
+    "lng": 0.47796,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/St._Barnabas%27_Church_Gardens%2C_Bexhill_%28360_panorama%29.jpg/1920px-St._Barnabas%27_Church_Gardens%2C_Bexhill_%28360_panorama%29.jpg",
+    "credit": "CC0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1654208,
+    "lng": -118.0806767,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Mapillary_%28uwrapid%29_2025-09-24_23H12M55S000_%28809223665172308_at_v7liUE4GtR0FIfs3QoPAW1_with_none%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_23H12M55S000_%28809223665172308_at_v7liUE4GtR0FIfs3QoPAW1_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.5054924,
+    "lng": -0.0753082,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Mapillary_%28jeffreymartin%29_2023-06-23_07H40M51S250_%28983409772739179_at_bFpYnh2NBwAs8dux3DkmCL_with_none%29.jpg/1920px-Mapillary_%28jeffreymartin%29_2023-06-23_07H40M51S250_%28983409772739179_at_bFpYnh2NBwAs8dux3DkmCL_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.06757396,
+    "lng": 12.81932775,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mapillary_%28osmplus_org%29_2025-10-18_10H14M47S625_%281549620292736088_at_0HukXWJDUjS4nFVswo1Mmy_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-10-18_10H14M47S625_%281549620292736088_at_0HukXWJDUjS4nFVswo1Mmy_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.12410961,
+    "lng": 11.73544041,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Mapillary_%28osmplus_org%29_2025-06-25_09H42M04S416_%281077361861029460_at_a5zqgkJfUKCjQ1YoVewZRh_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-06-25_09H42M04S416_%281077361861029460_at_a5zqgkJfUKCjQ1YoVewZRh_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.39489056,
+    "lng": 11.99208919,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mapillary_%28osmplus_org%29_2025-04-28_10H40M57S416_%283796140010678126_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-28_10H40M57S416_%283796140010678126_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.09735109,
+    "lng": 11.69686174,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Mapillary_%28osmplus_org%29_2025-12-11_10H44M13S400_%281793969167988723_at_l1QCIHNgZvYUfjRse09ybX_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H44M13S400_%281793969167988723_at_l1QCIHNgZvYUfjRse09ybX_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.25864702,
+    "lng": 11.79714123,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Mapillary_%28osmplus_org%29_2025-12-11_10H55M24S520_%281150553143532869_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H55M24S520_%281150553143532869_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.03623293,
+    "lng": 13.30400323,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapillary_%28osmplus_org%29_2025-04-28_09H10M24S500_%281103784474833475_at_jiHqfRorKMkNpFgAy30OeI_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-28_09H10M24S500_%281103784474833475_at_jiHqfRorKMkNpFgAy30OeI_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 52.403833,
+    "lng": 13.036389,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/2019-06-22_Parkanlage_Sanssouci_%28Wikipedianische_KulTour%29_by_DCB%E2%80%93017.jpg/1920px-2019-06-22_Parkanlage_Sanssouci_%28Wikipedianische_KulTour%29_by_DCB%E2%80%93017.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.34236,
+    "lng": 12.37512,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Leipzig-Museumsquartier-Westseite-TouristInfo-IMG_1158-8x3B-360x180G-PanoS-10-03-2025.jpg/1920px-Leipzig-Museumsquartier-Westseite-TouristInfo-IMG_1158-8x3B-360x180G-PanoS-10-03-2025.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.323055,
+    "lng": 11.920683,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mapillary_%28cCyuGKUjeOqEFbzhLk6xH3%29_%28frke%29_2024-08-09_05H06mn52s000.jpg/1920px-Mapillary_%28cCyuGKUjeOqEFbzhLk6xH3%29_%28frke%29_2024-08-09_05H06mn52s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.338638,
+    "lng": 11.618771,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mapillary_%286Us4qB2YVtCyI08Pop7RHx%29_%28kopra%29_2024-09-13_10H32mn12s890.jpg/1920px-Mapillary_%286Us4qB2YVtCyI08Pop7RHx%29_%28kopra%29_2024-09-13_10H32mn12s890.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.321312,
+    "lng": 11.913516,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Mapillary_%2830N7iy9q4xUkwEVolO6TaZ%29_%28Mayjo%29_2024-10-19_09H35mn43s000.jpg/1920px-Mapillary_%2830N7iy9q4xUkwEVolO6TaZ%29_%28Mayjo%29_2024-10-19_09H35mn43s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.309367,
+    "lng": 11.921128,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Mapillary_%28KWxJ3GA6ZOPNBylFaC9Rr5%29_%28Mayjo%29_2024-10-19_08H38mn21s000.jpg/1920px-Mapillary_%28KWxJ3GA6ZOPNBylFaC9Rr5%29_%28Mayjo%29_2024-10-19_08H38mn21s000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.06645233,
+    "lng": 12.82068667,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mapillary_%28osmplus_org%29_2025-10-18_10H15M23S000_%281711108322915813_at_0HukXWJDUjS4nFVswo1Mmy_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-10-18_10H15M23S000_%281711108322915813_at_0HukXWJDUjS4nFVswo1Mmy_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.47069596,
+    "lng": 11.80404238,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Mapillary_%28osmplus_org%29_2025-06-25_10H04M31S416_%281807604756819845_at_a5zqgkJfUKCjQ1YoVewZRh_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-06-25_10H04M31S416_%281807604756819845_at_a5zqgkJfUKCjQ1YoVewZRh_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.18854274,
+    "lng": 11.76356038,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mapillary_%28osmplus_org%29_2025-12-11_10H50M49S080_%28757483564031049_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H50M49S080_%28757483564031049_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 51.40452566,
+    "lng": 21.18198791,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mapillary_%28m1k0%29_2025-06-28_04H57M15S916_%281122830246341540_at_NqGOZJLPAtEvVjWSxQBKRe%29.jpg/1920px-Mapillary_%28m1k0%29_2025-06-28_04H57M15S916_%281122830246341540_at_NqGOZJLPAtEvVjWSxQBKRe%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1632466,
+    "lng": -118.080909,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Mapillary_%28uwrapid%29_2025-09-24_23H06M11S000_%281575816516738894_at_RmjQTdHx5ILo9KqnO0PBCN_with_none%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_23H06M11S000_%281575816516738894_at_RmjQTdHx5ILo9KqnO0PBCN_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.24708984,
+    "lng": 11.7880809,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mapillary_%28osmplus_org%29_2025-12-11_10H54M44S640_%2833475673188690327_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H54M44S640_%2833475673188690327_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 37.79219167,
+    "lng": -122.44126111,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Mapillary_%287TOgGMnsAfKiLIVjlvhxcU%29_%28GoProMAX3M%29_2022-06-09_00H05M37S307.jpg/1920px-Mapillary_%287TOgGMnsAfKiLIVjlvhxcU%29_%28GoProMAX3M%29_2022-06-09_00H05M37S307.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 4.42525395,
+    "lng": -55.37414428,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Mapillary_%28ost360vr_Joscelin%29_2026-01-19_09H45M16S404_%28839694562378111_at_doIZfTzU0QLC3a8ngvMsxb_with_RICOH_RICOH_THETA_X%29.jpg/1920px-Mapillary_%28ost360vr_Joscelin%29_2026-01-19_09H45M16S404_%28839694562378111_at_doIZfTzU0QLC3a8ngvMsxb_with_RICOH_RICOH_THETA_X%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.53569277,
+    "lng": 12.09451353,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Mapillary_%28osmplus_org%29_2026-02-12_10H14M53S208_%281882825609041606_at_0mjlsG5XgZWEB2J8LupSca%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-02-12_10H14M53S208_%281882825609041606_at_0mjlsG5XgZWEB2J8LupSca%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1655736,
+    "lng": -118.0846277,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Mapillary_%28uwrapid%29_2025-09-24_23H13M55S000_%284126999294280782_at_q1Il0mQf7RWXnsSuLx64jY%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_23H13M55S000_%284126999294280782_at_q1Il0mQf7RWXnsSuLx64jY%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 42.23820816,
+    "lng": -8.72164641,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Mapillary_%28713616264637926%2C_b5BMeUWkFfJL0aPSgOucdr%29_%28EAPI%29_2025-07-10_07H51M08S232.jpg/1920px-Mapillary_%28713616264637926%2C_b5BMeUWkFfJL0aPSgOucdr%29_%28EAPI%29_2025-07-10_07H51M08S232.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1708283,
+    "lng": -118.0281904,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Mapillary_%28uwrapid%29_2025-09-24_21H19M49S000_%282601808790211730_at_osHv7e2JBC8ciq9yjWVrxM%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_21H19M49S000_%282601808790211730_at_osHv7e2JBC8ciq9yjWVrxM%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 49.44699,
+    "lng": 11.07589272,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Mapillary_%28ZXStreetview%29_2025-10-08_19H43M32S822_%281193788202600845_at_QBacxWgdS2pNhqy3KToCV1%29.jpg/1920px-Mapillary_%28ZXStreetview%29_2025-10-08_19H43M32S822_%281193788202600845_at_QBacxWgdS2pNhqy3KToCV1%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 48.12396771,
+    "lng": 11.51849712,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Mapillary_%28osmplus_org%29_2026-03-20_05H14M38S250_%28843835372083813_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-03-20_05H14M38S250_%28843835372083813_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.37169959,
+    "lng": 11.97414498,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mapillary_%28osmplus_org%29_2025-04-28_10H43M35S250_%281430208931482682_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-04-28_10H43M35S250_%281430208931482682_at_G1HQeqgAlRStYF20aVoBX5_with_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.33541211,
+    "lng": 11.78789296,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Mapillary_%28osmplus_org%29_2025-12-11_10H59M34S480_%282095077077901503_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg/1920px-Mapillary_%28osmplus_org%29_2025-12-11_10H59M34S480_%282095077077901503_at_IdqHMXAJ43lxkjaVi5c1t7_with_none_none%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 61.21854389,
+    "lng": -149.88013889,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mapillary_%28RhfS5E0Leanh9c3eA1ySeQ%29_%28kinneyeng%29_2018-06-28_15H48M21S000.jpg/1920px-Mapillary_%28RhfS5E0Leanh9c3eA1ySeQ%29_%28kinneyeng%29_2018-06-28_15H48M21S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 43.52867347,
+    "lng": -5.67535105,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Mapillary_%28WhMJqfKlsOtZkaAQGF92DB%29_%28sanjorgepinho%29_2025-07-26_12H30M45S080.jpg/1920px-Mapillary_%28WhMJqfKlsOtZkaAQGF92DB%29_%28sanjorgepinho%29_2025-07-26_12H30M45S080.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 47.6100264,
+    "lng": -122.33671077,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mapillary_%28uwrapid%29_2020-05-10_11H11M26S500_%28908591056364277_at_rli7fhhnq27oyyv76d8gik_with_NCTECH_LTD_iSTAR_Pulsar%29.jpg/1920px-Mapillary_%28uwrapid%29_2020-05-10_11H11M26S500_%28908591056364277_at_rli7fhhnq27oyyv76d8gik_with_NCTECH_LTD_iSTAR_Pulsar%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 34.1722254,
+    "lng": -118.0533819,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Mapillary_%28uwrapid%29_2025-09-24_21H42M53S000_%28848527474796169_at_HS2EaFNKBZkGgMnJLpszCt%29.jpg/1920px-Mapillary_%28uwrapid%29_2025-09-24_21H42M53S000_%28848527474796169_at_HS2EaFNKBZkGgMnJLpszCt%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 48.12754956,
+    "lng": 11.43285504,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Mapillary_%28osmplus_org%29_2026-03-20_05H20M47S416_%281727572241538759_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg/1920px-Mapillary_%28osmplus_org%29_2026-03-20_05H20M47S416_%281727572241538759_at_TAS4jzU3v7c0Nio9CFH8t2%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 48.97037382,
+    "lng": 8.72672701,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Mapillary_%28ZXStreetview%29_2026-03-14_21H31M28S497_%282135137840607271_at_CiWgfIZTHeUDjBm2dbS0rq%29.jpg/1920px-Mapillary_%28ZXStreetview%29_2026-03-14_21H31M28S497_%282135137840607271_at_CiWgfIZTHeUDjBm2dbS0rq%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 9.9349567,
+    "lng": -84.0796214,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Mapillary_%28402518795911065%2C_LFe36AqMtoKcpHmaOSV0BN%29_%28kaart5%29_2023-07-18_06H30M01S000.jpg/1920px-Mapillary_%28402518795911065%2C_LFe36AqMtoKcpHmaOSV0BN%29_%28kaart5%29_2023-07-18_06H30M01S000.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 50.9238269,
+    "lng": 14.3692433,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Mapillary_%28Hol_Ger%29_2026-03-08_10H52M39S000_%2826453805604238771_at_gwNrSMyJPQAzZctFEK1Hl3_with_Arashi_Vision_insta360_x4%29.jpg/1920px-Mapillary_%28Hol_Ger%29_2026-03-08_10H52M39S000_%2826453805604238771_at_gwNrSMyJPQAzZctFEK1Hl3_with_Arashi_Vision_insta360_x4%29.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  {
+    "lat": 55.754174,
+    "lng": 37.634193,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Basmanny_District_Kitay-gorod_2015-05_1432306126.jpg/1920px-Basmanny_District_Kitay-gorod_2015-05_1432306126.jpg",
+    "credit": "CC BY-SA 4.0 · Wikimedia Commons"
+  }
+]

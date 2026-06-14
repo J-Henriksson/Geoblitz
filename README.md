@@ -1,44 +1,55 @@
 # GeoBlitz
 
-GeoBlitz is a web-based game where players are dropped into random locations on Google Street View with the goal of as accurately as possible pinpointing their location on a world map by analyzing the visual clues and landmarks within their surroundings.
+GeoBlitz is a web-based game where players are dropped into a random street-level location with the goal of pinpointing where they are on a world map, using only the visual clues in their surroundings.
 
-GeoBlitz is developed primarily using React and Node.js.
+GeoBlitz runs in two interchangeable modes behind one identical game loop (5 rounds, distance scoring, summary):
 
-### Features:
-* Randomized Locations
-* Google Maps API Integration
+* **Google mode** — classic Google Street View + Google Maps (requires a Google Maps API key).
+* **Free / no-Google-key mode** — random geotagged 360° panoramas from Wikimedia Commons, rendered with [Pannellum](https://pannellum.org/), over a [Leaflet](https://leafletjs.com/) guess map.
 
-## Development Stack:
-* **Frontend:** Developed using React.js, providing a responsive and intuitive user interface for seamless gameplay across devices.
-* **Backend:** Powered by Node.js, handling data management, user authentication, and game logic to ensure smooth performance.
-* **Google Maps API:** Integrating Google Maps API to retrieve location data, generate maps, and enable interactive exploration within the game environment.
+**No keys are required to play free mode.** A Google key is optional for Google Street View mode.
 
-## How to Play:
+### Features
+* Randomized Wikimedia Commons panorama locations
+* Works without a Google key
+* Optional Google Street View with a Google Maps key
+* Instant no-key rounds from a local Wikimedia Commons panorama dataset
+* Haversine distance scoring with a 5-round summary
 
-### 1. Get a Google Maps API Key
+## Development Stack
+* **Frontend:** React.js
+* **Maps:** Google Maps API *or* Leaflet + OpenStreetMap
+* **Panoramas:** Google Street View *or* Pannellum
 
-Obtain a Google API key from [Google Cloud Console](https://console.cloud.google.com/)
+## How to Play
 
-### 2. Clone the Repository and Configure the API Key
-
-Open your terminal and clone the repository by running:
-   ```bash
-   git clone "link to this repo"
-   ```
- 
-Navigate to the cloned repository folder, locate the .env.example file, rename it to .env, and replace the placeholder value in the GOOGLE_MAPS_API_KEY variable with your newly acquired API key.
-
-### 3. Install dependencies
-
-Install all of the projects dependencies using 
+### 1. Install dependencies
 ```bash
-   npm install
-   ```
-
-### 4. Run the Application
-
-Now you can start the application by running the following command from the terminal while in the repository's root folder:
-
-```bash
-   npm start
+npm install
 ```
+
+### 2. Run the app
+```bash
+npm start
+```
+
+### 3. (Optional) Add a Google Maps key
+Open the settings gear (top-right corner) at any time to add, change, or clear it:
+
+* **Google Maps API key** — enables Google Street View mode. Get one from the
+  [Google Cloud Console](https://console.cloud.google.com/).
+
+The Google key is stored in your browser's `localStorage`. Free mode uses the
+bundled Wikimedia Commons panorama dataset and does not require any API key.
+
+## Maintaining the static panorama library
+
+The free-mode panoramas live in `src/data/locations.json` and are generated from
+geotagged, CC-licensed equirectangular images on Wikimedia Commons:
+
+```bash
+npm run harvest:panoramas
+```
+
+The script discovers candidates, keeps only true 2:1 equirectangular images with
+GPS coordinates, and verifies every image URL loads before writing the file.

@@ -1,210 +1,547 @@
-/* App.css */
+/* ── Global reset ─────────────────────────────────────────────────────────── */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
 
+/* ── Game container — 50/50 split ────────────────────────────────────────── */
 .game-container {
   display: flex;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-.map-container, .streetview-container {
+.streetview-container {
   flex: 1;
   position: relative;
+  min-width: 0;
 }
 
-.map-container-inner {
-  height: 100%;
-  width: 100%;
+/* Mapillary: hide the turning arrows, keep only the forward/back step arrows */
+.mapillary-direction-turn-left,
+.mapillary-direction-turn-right,
+.mapillary-direction-turn-around,
+.mapillary-direction-turn-circle {
+  display: none !important;
+}
+
+/* Loading placeholder */
+.loading-panorama {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a2e;
+  color: white;
+  font-size: 20px;
+}
+
+/* ── Map side ─────────────────────────────────────────────────────────────── */
+.map-container {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  /* Subtle left border to visually separate pano from map */
+  border-left: 2px solid #222;
+}
+
+.game-container.result-mode {
+  display: block;
+}
+
+.game-container.result-mode .streetview-container {
+  display: none;
+}
+
+.game-container.result-mode .map-container {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  border-left: 0;
+}
+
+/* The Leaflet / Google map fills the entire right panel */
+.map-container .leaflet-container,
+.map-container > div:first-child {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Star marker for the true location — strip Leaflet's default div-icon box */
+.actual-star {
+  background: none;
+  border: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.guess-map--guessing,
+.guess-map--guessing .leaflet-grab,
+.guess-map--guessing .leaflet-interactive {
   cursor: crosshair !important;
 }
 
-.page {
-  
-  width: 100%;
-  top: 0;
-  left: 0;
+.guess-map--result,
+.guess-map--result .leaflet-grab,
+.guess-map--result .leaflet-interactive {
+  cursor: grab !important;
 }
 
+.leaflet-dragging .guess-map--result,
+.leaflet-dragging .guess-map--result .leaflet-grab,
+.leaflet-dragging .guess-map--result .leaflet-interactive {
+  cursor: grabbing !important;
+}
+
+.guess-map.leaflet-dragging,
+.guess-map.leaflet-dragging .leaflet-grab,
+.guess-map.leaflet-dragging .leaflet-interactive,
+.leaflet-dragging .guess-map,
+.leaflet-dragging .guess-map .leaflet-grab,
+.leaflet-dragging .guess-map .leaflet-interactive {
+  cursor: grabbing !important;
+}
+
+/* ── Hide Leaflet attribution watermark ──────────────────────────────────── */
+/* OSM legal attribution is reduced to a tiny, unobtrusive chip.              */
+.leaflet-control-attribution {
+  font-size: 8px !important;
+  opacity: 0.35;
+  background: rgba(255,255,255,0.5) !important;
+  padding: 1px 4px !important;
+  box-shadow: none !important;
+}
+
+.leaflet-control-attribution a {
+  color: #666 !important;
+}
+
+/* Zoom control styling */
+.leaflet-control-zoom {
+  border: 0 !important;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.24);
+}
+
+.leaflet-control-zoom a {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  font-size: 16px !important;
+  color: #1f2933 !important;
+  border-bottom-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Confirm Guess button ─────────────────────────────────────────────────── */
+.confirm-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  padding: 14px 36px;
+  font-size: 17px;
+  font-weight: 700;
+  background: #f8c22b;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.35);
+  transition: transform 0.18s, background 0.18s, opacity 0.18s;
+  letter-spacing: 0.3px;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  transform: translateX(-50%) scale(1.06);
+  background: #ffd84a;
+}
+
+.confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── Full-screen result controls ─────────────────────────────────────────── */
+.result-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: min(560px, calc(100vw - 32px));
+  padding: 13px 14px 13px 22px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: rgba(18, 24, 33, 0.9);
+  color: white;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.32);
+  backdrop-filter: blur(8px);
+}
+
+.result-distance {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.result-distance small {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.72;
+}
+
+.result-action-button {
+  flex: 0 0 auto;
+  min-width: 138px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #f8c22b;
+  color: #171717;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 0.18s, background 0.18s;
+}
+
+.result-action-button:hover {
+  background: #ffd84a;
+  transform: scale(1.04);
+}
+
+/* ── Round / summary modals ──────────────────────────────────────────────── */
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   right: auto;
   bottom: auto;
-  margin-right: -50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 15px 15px 50px 15px; /* Added bottom padding */
-  border-radius: 10px;
+  padding: 28px 26px 72px;
+  border-radius: 14px;
   outline: none;
-  width: 300px;
+  width: 320px;
   text-align: center;
-  z-index: 10;
-
+  z-index: 600;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content higher */
+  align-items: center;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+
+.modal h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.summary-header {
+  margin-bottom: 0;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 9;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 550;
 }
 
-h3.summary-header {
-  margin-bottom: 40px; 
-}
-
-.next-round-button {
-  position: absolute;
-  bottom: 10px;
-  left: 120px;
-  z-index: 1;
-  margin-top: 20px;
-  padding: 15px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 15px;
-  background-color: #0e24ee;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.next-round-button:hover {
-  transform: scale(1.1);
-}
-
-.next-round-button:active {
-  background-color: #007B9E;
-}
-
+.next-round-button,
 .play-again-button {
   position: absolute;
-  bottom: 10px;
-  left: 90px;
-  z-index: 1;
-  margin-top: 20px;
-  padding: 15px 30px;
-  font-size: 18px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 13px 38px;
+  font-size: 17px;
+  font-weight: 700;
   border: none;
-  border-radius: 15px;
-  background-color: #0e24ee;
+  border-radius: 28px;
+  background: #0e24ee;
   color: white;
   cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
+  white-space: nowrap;
+  transition: transform 0.18s, background 0.18s;
 }
 
+.next-round-button:hover,
 .play-again-button:hover {
-  transform: scale(1.1);
+  background: #0a1cc5;
+  transform: translateX(-50%) scale(1.06);
 }
 
-.play-again-button:active {
-  background-color: #007B9E;
-}
-
-button {
+/* Attribution overlay for bundled static panoramas */
+.panorama-credit {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  z-index: 1;
-  padding: 20px 30px;
-  background-color: #0e24ee;
+  bottom: 8px;
+  left: 8px;
+  z-index: 2;
+  max-width: 60%;
+  padding: 3px 8px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 11px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* ── Settings gear ───────────────────────────────────────────────────────── */
+.settings-gear {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  bottom: auto;
+  left: auto;
+  z-index: 900;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  background: rgba(0,0,0,0.45);
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
-  transition: all 0.3s ease;
+  transition: background 0.2s, transform 0.2s;
 }
 
-button:hover {
+.settings-gear:hover {
   transform: scale(1.1);
+  background: rgba(0,0,0,0.7);
 }
 
-button:active {
-  background-color: #0056b3;
+/* ── Settings modal ──────────────────────────────────────────────────────── */
+.settings-modal {
+  width: 360px;
+  text-align: left;
+  padding: 22px;
 }
 
-.page-enter {
-  opacity: 0;
+.settings-note {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 16px;
+  line-height: 1.5;
 }
 
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
+.settings-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  gap: 5px;
 }
 
-.page-exit {
-  opacity: 1;
+.settings-label input {
+  padding: 9px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
+.settings-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
 }
 
-/* Container styles for the start game button */
-.start-game-container {
-  margin-top: 20px; 
+.settings-save,
+.settings-clear {
+  position: static;
+  bottom: auto;
+  left: auto;
+  padding: 9px 18px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transform: none;
 }
 
-/* Button styles */
-.start-game-button {
-  background-color: #61dafb; 
-  color: white; 
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
-  display: inline-block; 
-  text-decoration: none; 
-}
+.settings-save { background: #0e24ee; }
+.settings-save:hover { background: #0a1cc5; transform: none; }
+.settings-clear { background: #888; }
+.settings-clear:hover { background: #666; transform: none; }
 
-/* Hover styles for the button */
-.start-game-button:hover {
-  background-color: #4fa3c3; 
-}
-
-/* Existing styles */
-
+/* ── Home / start screen ─────────────────────────────────────────────────── */
 .App {
-  text-align: center;
+  height: 100%;
 }
 
 .App-header {
-  background: url("assets/Background.jpg") no-repeat center center fixed; 
-  background-color: #282c34;
+  background: url("assets/Background.jpg") no-repeat center center / cover;
+  background-color: #1a1a2e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  gap: 12px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  margin: 0 0 4px;
+  font-size: clamp(28px, 5vw, 52px);
+  letter-spacing: 1px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-header p {
+  margin: 0 0 28px;
+  font-size: clamp(14px, 2vw, 18px);
+  opacity: 0.8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Mode selection cards */
+.mode-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mode-card {
+  background: rgba(17, 24, 48, 0.82);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  padding: 28px 32px;
+  width: 230px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  color: white;
+  position: static;
+  bottom: auto;
+  left: auto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
 }
 
+.mode-card:hover {
+  background: rgba(30, 42, 84, 0.92);
+  border-color: #8aa4ff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+}
+
+.mode-card.selected {
+  background: rgba(14, 36, 238, 0.6);
+  border-color: #6b8aff;
+}
+
+.mode-card .mode-title {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.mode-card .mode-desc {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* Key input section shown after selecting a mode */
+.mode-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mode-setup label {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.mode-setup input {
+  padding: 11px 14px;
+  font-size: 15px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.play-btn {
+  padding: 14px 48px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #f8c22b;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  position: static;
+  bottom: auto;
+  left: auto;
+}
+
+.play-btn:hover {
+  background: #ffd84a;
+  transform: scale(1.05);
+}
+
+.play-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  position: static;
+  bottom: auto;
+  left: auto;
+}
+
+.back-btn:hover {
+  color: white;
+  transform: none;
+}
+
+/* ── Route transitions ───────────────────────────────────────────────────── */
+.page-enter       { opacity: 0; }
+.page-enter-active { opacity: 1; transition: opacity 300ms; }
+.page-exit        { opacity: 1; }
+.page-exit-active  { opacity: 0; transition: opacity 300ms; }
