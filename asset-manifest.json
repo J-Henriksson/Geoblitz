@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Geoblitz/static/css/main.a27bdc9d.css",
+    "main.js": "/Geoblitz/static/js/main.66e11ae8.js",
+    "static/js/453.d3ba71ff.chunk.js": "/Geoblitz/static/js/453.d3ba71ff.chunk.js",
+    "static/media/Background.jpg": "/Geoblitz/static/media/Background.293dfa6e87cbb7267a49.jpg",
+    "index.html": "/Geoblitz/index.html",
+    "main.a27bdc9d.css.map": "/Geoblitz/static/css/main.a27bdc9d.css.map",
+    "main.66e11ae8.js.map": "/Geoblitz/static/js/main.66e11ae8.js.map",
+    "453.d3ba71ff.chunk.js.map": "/Geoblitz/static/js/453.d3ba71ff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a27bdc9d.css",
+    "static/js/main.66e11ae8.js"
+  ]
+}
