@@ -41,7 +41,7 @@ const bboxStr = (lat, lng, m) => {
 async function imagesNear(lat, lng) {
   for (const m of [800, 150]) {
     try {
-      const url = `${GRAPH}?fields=id,computed_geometry&bbox=${bboxStr(lat, lng, m)}&limit=25&access_token=${encodeURIComponent(MAPILLARY_TOKEN)}`;
+      const url = `${GRAPH}?fields=id,computed_geometry,thumb_2048_url&bbox=${bboxStr(lat, lng, m)}&limit=25&access_token=${encodeURIComponent(MAPILLARY_TOKEN)}`;
       const j = await (await fetch(url)).json();
       if (j.error) {
         if (/reduce the amount/i.test(j.error.message)) continue; // too dense → smaller box
@@ -75,12 +75,13 @@ export async function fetchRandomMapillaryLocation(usedSet = new Set(), usedCoor
           imageId: im.id,
           lng: im.computed_geometry.coordinates[0],
           lat: im.computed_geometry.coordinates[1],
+          thumbUrl: im.thumb_2048_url, // for cache pre-warming
         }))
         .filter((c) => farEnough(c.lat, c.lng, usedCoords))
     );
     if (candidates.length) {
       const c = candidates[0];
-      return { lat: c.lat, lng: c.lng, kind: 'mapillary', imageId: c.imageId };
+      return { lat: c.lat, lng: c.lng, kind: 'mapillary', imageId: c.imageId, thumbUrl: c.thumbUrl };
     }
   }
   return null;

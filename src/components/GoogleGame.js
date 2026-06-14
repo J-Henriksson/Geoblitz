@@ -76,8 +76,8 @@ function GoogleGameInner() {
         {game.summaryModalOpen && (
           <div className="result-bar">
             <div className="result-distance">
-              <span>Final score</span>
-              <small>Avg {Math.round(game.averageDistance)} km</small>
+              <span className="final-avg">{Math.round(game.averageDistance)} km</span>
+              <small>average distance</small>
             </div>
             <button className="result-action-button" onClick={game.resetGame}>
               Play Again

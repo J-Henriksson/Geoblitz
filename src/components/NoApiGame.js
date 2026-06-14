@@ -36,6 +36,16 @@ const pickStaticLocation = (usedSet, usedCoords) => {
   return { ...pool[Math.floor(Math.random() * pool.length)], kind: 'static' };
 };
 
+// Warm the browser cache with a queued location's image so it renders quickly
+// when its round arrives (Mapillary thumbnail, or the Commons panorama).
+const preloadImage = (entry) => {
+  const url = entry.thumbUrl || entry.imageUrl;
+  if (!url) return;
+  const img = new Image();
+  img.crossOrigin = 'anonymous'; // match how the viewers fetch (CORS textures)
+  img.src = url;
+};
+
 function NoApiGame() {
   const queueRef = useRef([]);          // prefetched Commons panoramas (fallback)
   const usedRef = useRef(new Set());    // image ids/urls already shown
@@ -72,6 +82,7 @@ function NoApiGame() {
             .then((entry) => {
               if (entry && !usedRef.current.has(keyOf(entry)) && queueRef.current.length < QUEUE_CAP) {
                 markUsed(entry); // mark at queue time so parallel fetches avoid it
+                preloadImage(entry); // warm the cache so it renders fast on its turn
                 queueRef.current.push(entry);
               }
             })
@@ -145,8 +156,8 @@ function NoApiGame() {
         {game.summaryModalOpen && (
           <div className="result-bar">
             <div className="result-distance">
-              <span>Final score</span>
-              <small>Avg {Math.round(game.averageDistance)} km</small>
+              <span className="final-avg">{Math.round(game.averageDistance)} km</span>
+              <small>average distance</small>
             </div>
             <button className="result-action-button" onClick={game.resetGame}>
               Play Again

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -20,8 +20,8 @@ const actualIcon = L.divIcon({
 const lineRenderer = L.svg({ padding: 0.5 });
 
 // Shift `lng` by whole turns so it lands within 180° of `refLng` — the nearest
-// "copy" of that point. Used to keep guess↔target lines on the short path even
-// across the antimeridian (e.g. 170° vs -170° → draws 20°, not 340°).
+// "copy" of that point. Keeps guess↔target lines on the short path even across
+// the antimeridian (e.g. 170° vs -170° → draws 20°, not 340°).
 const nearLng = (refLng, lng) => {
   let out = lng;
   while (out - refLng > 180) out -= 360;
@@ -29,20 +29,21 @@ const nearLng = (refLng, lng) => {
   return out;
 };
 
-// distancePath is [target, guess]. Anchor on the guess and pull the target to
-// its nearest copy so the segment (and its fit-bounds) take the short path.
+// distancePath is [target, guess]. Anchor on the guess, pull the target to its
+// nearest copy. Returns [[lat,lng],[lat,lng]].
 const shortPath = ([t, g]) => [
   [t.lat, nearLng(g.lng, t.lng)],
   [g.lat, g.lng],
 ];
 
+const shift = ([lat, lng], d) => [lat, lng + d];
+
 function ClickHandler({ onMapClick, enabled }) {
   useMapEvents({
     click: (e) => {
       if (!enabled) return;
-      // Wrap into [-180, 180]: on the zoomed-out world view a click can land on
-      // a repeated map copy and return e.g. -342°, which breaks the distance
-      // math and draws the line the long way around the globe.
+      // Wrap into [-180, 180]: on a repeated world copy a click returns e.g.
+      // -342°, which would break the distance math.
       const { lat, lng } = e.latlng.wrap();
       onMapClick({ lat, lng });
     },
@@ -50,8 +51,6 @@ function ClickHandler({ onMapClick, enabled }) {
   return null;
 }
 
-// react-leaflet only applies <MapContainer className> at mount, so toggle the
-// guessing/result classes imperatively to keep the cursor in sync.
 function CursorMode({ resultMode }) {
   const map = useMap();
   useEffect(() => {
@@ -62,15 +61,10 @@ function CursorMode({ resultMode }) {
   return null;
 }
 
-// Drives the map view: recenters on the whole world for a fresh guessing round,
-// and fits to the result/summary bounds once a guess is in.
 function ViewController({ distancePath, summaryModalOpen, allPolylines, resultMode }) {
   const map = useMap();
   useEffect(() => {
     if (!distancePath && !summaryModalOpen) {
-      // New round → snap back to the full, centered world view. invalidateSize
-      // first (and again after the layout settles): leaving result mode resizes
-      // the map panel, and a stale size makes setView land off-centre (Pacific).
       const recenter = () => {
         map.invalidateSize();
         map.setView([10, 0], 2, { animate: false });
@@ -80,7 +74,7 @@ function ViewController({ distancePath, summaryModalOpen, allPolylines, resultMo
       return () => window.clearTimeout(t);
     }
     const paths = summaryModalOpen ? allPolylines : [distancePath];
-    const latlngs = paths.flatMap(shortPath); // short-path coords for fit bounds
+    const latlngs = paths.flatMap(shortPath);
     if (latlngs.length === 0) return;
 
     const fit = () => {
@@ -98,6 +92,78 @@ function ViewController({ distancePath, summaryModalOpen, allPolylines, resultMo
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [distancePath, summaryModalOpen, resultMode]);
   return null;
+}
+
+// The world repeats horizontally, so markers/lines must be drawn on every
+// visible copy. Returns the longitude offsets (multiples of 360) currently in
+// view, recomputed as the map pans.
+function useWorldOffsets() {
+  const map = useMap();
+  const compute = () => {
+    const b = map.getBounds();
+    const kMin = Math.floor((b.getWest() + 180) / 360);
+    const kMax = Math.floor((b.getEast() + 180) / 360);
+    const arr = [];
+    for (let k = kMin; k <= kMax; k++) arr.push(k * 360);
+    return arr.length ? arr : [0];
+  };
+  const [offsets, setOffsets] = useState(compute);
+  useMapEvents({
+    move: () =>
+      setOffsets((prev) => {
+        const next = compute();
+        const same =
+          next.length === prev.length &&
+          next[0] === prev[0] &&
+          next[next.length - 1] === prev[prev.length - 1];
+        return same ? prev : next;
+      }),
+  });
+  return offsets;
+}
+
+// Renders the guess pin, target star and lines — duplicated across every
+// visible world copy so they stay on screen no matter how far you pan.
+function Overlays({ guessLocation, target, distancePath, summaryModalOpen, allPolylines }) {
+  const offsets = useWorldOffsets();
+  return (
+    <>
+      {offsets.map((d) => (
+        <React.Fragment key={d}>
+          {guessLocation && !summaryModalOpen && (
+            <Marker position={[guessLocation.lat, guessLocation.lng + d]} icon={guessIcon} />
+          )}
+          {target && distancePath && !summaryModalOpen && (
+            <Marker position={shift(shortPath(distancePath)[0], d)} icon={actualIcon} />
+          )}
+          {distancePath && !summaryModalOpen && (
+            <Polyline
+              positions={shortPath(distancePath).map((p) => shift(p, d))}
+              color="#e63946"
+              weight={3}
+              renderer={lineRenderer}
+            />
+          )}
+          {summaryModalOpen &&
+            allPolylines.map((path, i) => {
+              const [tLL, gLL] = shortPath(path);
+              return (
+                <React.Fragment key={i}>
+                  <Marker position={shift(gLL, d)} icon={guessIcon} />
+                  <Marker position={shift(tLL, d)} icon={actualIcon} />
+                  <Polyline
+                    positions={[shift(tLL, d), shift(gLL, d)]}
+                    color="#e63946"
+                    weight={3}
+                    renderer={lineRenderer}
+                  />
+                </React.Fragment>
+              );
+            })}
+        </React.Fragment>
+      ))}
+    </>
+  );
 }
 
 function LeafletGuessMap({
@@ -136,26 +202,13 @@ function LeafletGuessMap({
         allPolylines={allPolylines}
         resultMode={resultMode}
       />
-
-      {guessLocation && <Marker position={[guessLocation.lat, guessLocation.lng]} icon={guessIcon} />}
-      {target && distancePath && (
-        <Marker position={shortPath(distancePath)[0]} icon={actualIcon} />
-      )}
-      {distancePath && !summaryModalOpen && (
-        <Polyline positions={shortPath(distancePath)} color="#e63946" weight={3} renderer={lineRenderer} />
-      )}
-
-      {summaryModalOpen &&
-        allPolylines.map((path, i) => {
-          const [targetLL, guessLL] = shortPath(path);
-          return (
-            <React.Fragment key={i}>
-              <Marker position={guessLL} icon={guessIcon} />
-              <Marker position={targetLL} icon={actualIcon} />
-              <Polyline positions={[targetLL, guessLL]} color="#e63946" weight={3} renderer={lineRenderer} />
-            </React.Fragment>
-          );
-        })}
+      <Overlays
+        guessLocation={guessLocation}
+        target={target}
+        distancePath={distancePath}
+        summaryModalOpen={summaryModalOpen}
+        allPolylines={allPolylines}
+      />
     </MapContainer>
   );
 }
