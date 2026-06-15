@@ -2,12 +2,14 @@
 
 GeoBlitz is a web-based game where players are dropped into a random street-level location with the goal of pinpointing where they are on a world map, using only the visual clues in their surroundings.
 
-GeoBlitz runs in two interchangeable modes behind one identical game loop (5 rounds, distance scoring, summary):
+GeoBlitz can be played in one of two interchangeable ways:
 
-* **Google mode** — classic Google Street View + Google Maps (requires a Google Maps API key).
-* **Free / no-Google-key mode** — random geotagged 360° panoramas from Wikimedia Commons, rendered with [Pannellum](https://pannellum.org/), over a [Leaflet](https://leafletjs.com/) guess map.
+* **Google mode**: classic Google Street View + Google Maps (requires a Google Maps API key).
+* **Free / no-Google-key mode**: random geotagged 360° panoramas from Wikimedia Commons, rendered with [Pannellum](https://pannellum.org/), over a [Leaflet](https://leafletjs.com/) guess map.
 
 **No keys are required to play free mode.** A Google key is optional for Google Street View mode.
+
+Both modes follow the exact same game loop (5 rounds, distance scoring, summary).
 
 ### Features
 * Randomized Wikimedia Commons panorama locations
@@ -36,7 +38,7 @@ npm start
 ### 3. (Optional) Add a Google Maps key
 Open the settings gear (top-right corner) at any time to add, change, or clear it:
 
-* **Google Maps API key** — enables Google Street View mode. Get one from the
+* **Google Maps API key**: enables Google Street View mode. Get one from the
   [Google Cloud Console](https://console.cloud.google.com/).
 
 The Google key is stored in your browser's `localStorage`. Free mode uses the

@@ -604,3 +604,76 @@ html, body, #root {
 .page-enter-active { opacity: 1; transition: opacity 300ms; }
 .page-exit        { opacity: 1; }
 .page-exit-active  { opacity: 0; transition: opacity 300ms; }
+
+/* ── Mobile map controls (hidden on desktop) ─────────────────────────────── */
+.map-toggle,
+.map-collapse {
+  display: none;
+}
+
+.map-toggle {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  background: #f8c22b;
+  color: #111;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.map-collapse {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 600;
+  width: 54px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 24, 33, 0.92);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Mobile layout: fullscreen street view, map slides up as a sheet ─────── */
+@media (max-width: 768px) {
+  .game-container {
+    display: block;
+  }
+  .streetview-container {
+    position: absolute;
+    inset: 0;
+  }
+  .map-container {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    border-left: 0;
+    transform: translateY(100%);
+    transition: transform 0.28s ease;
+  }
+  .map-container.map-open {
+    transform: translateY(0);
+  }
+  .map-toggle {
+    display: inline-flex;
+  }
+  .map-collapse {
+    display: flex;
+  }
+}

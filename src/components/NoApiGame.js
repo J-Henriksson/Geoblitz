@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import useGeoGame, { TOTAL_ROUNDS } from '../hooks/useGeoGame';
+import useGeoGame from '../hooks/useGeoGame';
 import PannellumPanorama from './PannellumPanorama';
 import MapillaryPanorama from './MapillaryPanorama';
-import LeafletGuessMap from './LeafletGuessMap';
+import GuessPanel from './GuessPanel';
 import locations from '../data/locations.json';
 import { fetchRandomCommonsPanorama, MIN_SEPARATION_KM } from '../services/commonsLive';
 import {
@@ -117,13 +117,11 @@ function NoApiGame() {
 
   const game = useGeoGame(loadNextLocation);
   const { providerData, loading } = game;
-  const inRoundResult = !!game.distancePath && !game.summaryModalOpen;
-  const isLastRound = game.round >= TOTAL_ROUNDS;
-  const isResultMode = inRoundResult || game.summaryModalOpen;
+  const isResultMode = !!game.distancePath || game.summaryModalOpen;
 
   return (
     <div className={`game-container${isResultMode ? ' result-mode' : ''}`}>
-      {/* Left: fullscreen panorama */}
+      {/* Panorama (fullscreen on mobile / left half on desktop) */}
       {loading || !providerData ? (
         <div className="streetview-container loading-panorama">Finding a location…</div>
       ) : providerData.kind === 'mapillary' ? (
@@ -132,52 +130,7 @@ function NoApiGame() {
         <PannellumPanorama imageUrl={providerData.imageUrl} credit={providerData.credit} />
       )}
 
-      {/* Right: map panel */}
-      <div className="map-container">
-        <LeafletGuessMap
-          guessLocation={game.guessLocation}
-          target={game.target}
-          distancePath={game.distancePath}
-          summaryModalOpen={game.summaryModalOpen}
-          allMarkers={game.allMarkers}
-          allPolylines={game.allPolylines}
-          onMapClick={game.setGuess}
-          resultMode={isResultMode}
-        />
-        {!isResultMode && (
-          <button
-            className="confirm-btn"
-            onClick={game.confirmGuess}
-            disabled={!game.guessLocation}
-          >
-            Confirm Guess
-          </button>
-        )}
-        {game.summaryModalOpen && (
-          <div className="result-bar">
-            <div className="result-distance">
-              <span className="final-avg">{Math.round(game.averageDistance)} km</span>
-              <small>average distance</small>
-            </div>
-            <button className="result-action-button" onClick={game.resetGame}>
-              Play Again
-            </button>
-          </div>
-        )}
-        {inRoundResult && (
-          <div className="result-bar">
-            <div className="result-distance">
-              <span>{Math.round(game.distance ?? 0)} km away</span>
-            </div>
-            <button
-              className="result-action-button"
-              onClick={isLastRound ? game.showSummary : game.playAgain}
-            >
-              {isLastRound ? `Breakdown` : `Next Round`}
-            </button>
-          </div>
-        )}
-      </div>
+      <GuessPanel game={game} />
     </div>
   );
 }
