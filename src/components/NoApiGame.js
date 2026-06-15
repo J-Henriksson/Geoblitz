@@ -101,33 +101,63 @@ function NoApiGame() {
   }, [fillQueue]);
 
   const loadNextLocation = useCallback(async () => {
-    let entry;
+    // 1. Use a prefetched live location if one is ready (instant).
     if (queueRef.current.length > 0) {
-      entry = queueRef.current.shift(); // fresh live location (already marked used)
-    } else {
-      // Queue not ready (e.g. round 1, or a slow network): instant bundled pick.
-      entry =
-        (MAPILLARY_AVAILABLE && getBundledMapillaryLocation(usedRef.current, usedCoordsRef.current)) ||
-        pickStaticLocation(usedRef.current, usedCoordsRef.current);
-      markUsed(entry);
+      const entry = queueRef.current.shift(); // already marked used
+      fillQueue(2);
+      return toProviderData(entry);
     }
-    fillQueue(2); // keep the queue topped up
+    // 2. Otherwise fetch a fresh live location now (e.g. round 1). This avoids
+    //    always pulling round 1 from the small bundled pool, which repeats.
+    const live = await fetchNext();
+    if (live) {
+      markUsed(live);
+      preloadImage(live);
+      fillQueue(2);
+      return toProviderData(live);
+    }
+    // 3. Last resort (offline / live failed): instant bundled pick.
+    const entry =
+      (MAPILLARY_AVAILABLE && getBundledMapillaryLocation(usedRef.current, usedCoordsRef.current)) ||
+      pickStaticLocation(usedRef.current, usedCoordsRef.current);
+    markUsed(entry);
+    fillQueue(2);
     return toProviderData(entry);
-  }, [fillQueue, markUsed]);
+  }, [fetchNext, fillQueue, markUsed]);
 
   const game = useGeoGame(loadNextLocation);
   const { providerData, loading } = game;
   const isResultMode = !!game.distancePath || game.summaryModalOpen;
 
+  // If a Mapillary image renders, reset the recovery guard; if the viewer gets
+  // stuck (frozen black), reload this round with another location (verified
+  // fetches make it rare, so cap consecutive retries to avoid any loop).
+  const stuckRetriesRef = useRef(0);
+  const onPanoReady = useCallback(() => {
+    stuckRetriesRef.current = 0;
+  }, []);
+  const onPanoStuck = useCallback(() => {
+    if (game.distancePath || stuckRetriesRef.current >= 4) return; // not while a guess is in
+    stuckRetriesRef.current += 1;
+    game.playAgain(); // reload the round with a fresh location
+  }, [game]);
+
   return (
     <div className={`game-container${isResultMode ? ' result-mode' : ''}`}>
-      {/* Panorama (fullscreen on mobile / left half on desktop) */}
-      {loading || !providerData ? (
-        <div className="streetview-container loading-panorama">Finding a location…</div>
-      ) : providerData.kind === 'mapillary' ? (
-        <MapillaryPanorama imageId={providerData.imageId} />
-      ) : (
+      {/* Panorama (fullscreen on mobile / left half on desktop). The viewer
+          stays mounted across rounds and transitions via moveTo, so switching
+          locations doesn't flash. The loader only shows before the first one. */}
+      {providerData && providerData.kind === 'mapillary' ? (
+        <MapillaryPanorama
+          imageId={providerData.imageId}
+          loading={loading}
+          onReady={onPanoReady}
+          onStuck={onPanoStuck}
+        />
+      ) : providerData && providerData.kind === 'static' ? (
         <PannellumPanorama imageUrl={providerData.imageUrl} credit={providerData.credit} />
+      ) : (
+        <div className="streetview-container loading-panorama">Finding a location…</div>
       )}
 
       <GuessPanel game={game} />

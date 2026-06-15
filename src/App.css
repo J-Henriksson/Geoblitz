@@ -39,6 +39,39 @@ html, body, #root {
   height: 100%;
 }
 
+/* Fade-to-dark overlay while a new location loads (hides the old/loading view) */
+.pano-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c0f16;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pano-fade.show {
+  opacity: 1;
+}
+
+.pano-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid rgba(255, 255, 255, 0.22);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: pano-spin 0.8s linear infinite;
+}
+
+@keyframes pano-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Custom GeoGuessr-style compass: dark disc with a red(N)/white(S) needle */
 .gg-compass {
   position: absolute;
@@ -527,9 +560,9 @@ html, body, #root {
 }
 
 .App-header {
-  background: url("assets/Background.jpg") no-repeat center center;
-  background-size: contain;
-  background-color: #02040a;
+  position: relative;
+  overflow: hidden;
+  background: #02040a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -539,6 +572,53 @@ html, body, #root {
   gap: 12px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+/* Twinkling starfield behind the planet */
+.home-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 6px 1px rgba(255, 255, 255, 0.9),
+    0 0 14px 3px rgba(170, 205, 255, 0.55);
+  opacity: 0.8;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* The planet, floating in front of the stars */
+.home-globe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vmin;
+  max-width: 96vw;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Title / tagline / button sit above the globe */
+.App-header h1,
+.App-header p,
+.App-header .play-btn {
+  position: relative;
+  z-index: 2;
 }
 
 .App-header h1 {

@@ -58,9 +58,23 @@ async function imagesNear(lat, lng) {
 const farEnough = (lat, lng, usedCoords) =>
   usedCoords.every((u) => getDistance(lat, lng, u.lat, u.lng) > MIN_SEPARATION_KM);
 
-// LIVE primary: resolve a fresh image near a random seed city. Tries several
-// cities (with a few km of jitter so repeat visits land on different streets).
-// Returns { lat, lng, kind, imageId } or null.
+// Confirm the image actually loads before we use it: some imageIds resolve from
+// the API but have missing/broken image data, which leaves the viewer frozen
+// black. Loading the thumbnail here both verifies it and warms the cache.
+function imageLoads(url) {
+  if (!url) return Promise.resolve(false);
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+// LIVE primary: resolve a fresh, verified image near a random seed city. Tries
+// several cities (with a few km of jitter so repeat visits land on different
+// streets). Returns { lat, lng, kind, imageId, thumbUrl } or null.
 export async function fetchRandomMapillaryLocation(usedSet = new Set(), usedCoords = []) {
   if (!MAPILLARY_TOKEN) return null;
   for (let attempt = 0; attempt < 6; attempt++) {
@@ -70,18 +84,19 @@ export async function fetchRandomMapillaryLocation(usedSet = new Set(), usedCoor
     const imgs = await imagesNear(jLat, jLng);
     const candidates = shuffle(
       imgs
-        .filter((im) => im.computed_geometry && !usedSet.has(im.id))
+        .filter((im) => im.computed_geometry && im.thumb_2048_url && !usedSet.has(im.id))
         .map((im) => ({
           imageId: im.id,
           lng: im.computed_geometry.coordinates[0],
           lat: im.computed_geometry.coordinates[1],
-          thumbUrl: im.thumb_2048_url, // for cache pre-warming
+          thumbUrl: im.thumb_2048_url,
         }))
         .filter((c) => farEnough(c.lat, c.lng, usedCoords))
     );
-    if (candidates.length) {
-      const c = candidates[0];
-      return { lat: c.lat, lng: c.lng, kind: 'mapillary', imageId: c.imageId, thumbUrl: c.thumbUrl };
+    for (const c of candidates) {
+      if (await imageLoads(c.thumbUrl)) {
+        return { lat: c.lat, lng: c.lng, kind: 'mapillary', imageId: c.imageId, thumbUrl: c.thumbUrl };
+      }
     }
   }
   return null;
