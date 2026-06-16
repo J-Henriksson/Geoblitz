@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, useMap } from 'react-leaflet';
+import React, { useEffect, useRef, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Polyline, Popup, Tooltip, useMapEvents, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import guessMarkerUrl from '../assets/Guess-marker.png';
+import { fetchWikiSummary } from '../services/wiki';
 
 const guessIcon = L.icon({ iconUrl: guessMarkerUrl, iconSize: [28, 28], iconAnchor: [14, 28] });
 
@@ -37,6 +38,60 @@ const shortPath = ([t, g]) => [
 ];
 
 const shift = ([lat, lng], d) => [lat, lng + d];
+
+// The true-location star. For the round result (`preview`), it eagerly fetches
+// the city's Wikipedia info and shows a small photo bubble above the star as a
+// hint that it's clickable; clicking the photo or star opens the full card.
+// `position` is the (possibly world-shifted) render position; lat/lng are the
+// real coordinates used for the lookup.
+function ActualStar({ position, lat, lng, preview = false }) {
+  const markerRef = useRef(null);
+  const [info, setInfo] = useState(undefined); // undefined = not fetched, null = none
+
+  useEffect(() => {
+    if (!preview) return undefined;
+    let alive = true;
+    fetchWikiSummary(lat, lng).then((d) => alive && setInfo(d || null));
+    return () => {
+      alive = false;
+    };
+  }, [preview, lat, lng]);
+
+  const ensureInfo = () => {
+    if (info === undefined) fetchWikiSummary(lat, lng).then((d) => setInfo(d || null));
+  };
+
+  return (
+    <Marker position={position} icon={actualIcon} ref={markerRef} eventHandlers={{ click: ensureInfo }}>
+      {preview && info && info.thumbnail && (
+        <Tooltip permanent direction="top" offset={[0, -14]} interactive className="star-preview">
+          <img
+            className="star-preview-img"
+            src={info.thumbnail}
+            alt={info.title}
+            onClick={() => markerRef.current && markerRef.current.openPopup()}
+          />
+        </Tooltip>
+      )}
+      <Popup className="wiki-popup" minWidth={230} maxWidth={250}>
+        {info === undefined ? (
+          <div className="wiki-msg">Looking up this place…</div>
+        ) : info ? (
+          <div className="wiki-card">
+            {info.thumbnail && <img className="wiki-thumb" src={info.thumbnail} alt="" />}
+            <div className="wiki-title">{info.title}</div>
+            {info.extract && <div className="wiki-extract">{info.extract}</div>}
+            <a className="wiki-link" href={info.url} target="_blank" rel="noreferrer">
+              Read more on Wikipedia →
+            </a>
+          </div>
+        ) : (
+          <div className="wiki-msg">No Wikipedia info for this place.</div>
+        )}
+      </Popup>
+    </Marker>
+  );
+}
 
 function ClickHandler({ onMapClick, enabled }) {
   useMapEvents({
@@ -134,7 +189,12 @@ function Overlays({ guessLocation, target, distancePath, summaryModalOpen, allPo
             <Marker position={[guessLocation.lat, guessLocation.lng + d]} icon={guessIcon} />
           )}
           {target && distancePath && !summaryModalOpen && (
-            <Marker position={shift(shortPath(distancePath)[0], d)} icon={actualIcon} />
+            <ActualStar
+              position={shift(shortPath(distancePath)[0], d)}
+              lat={distancePath[0].lat}
+              lng={distancePath[0].lng}
+              preview
+            />
           )}
           {distancePath && !summaryModalOpen && (
             <Polyline
@@ -150,7 +210,7 @@ function Overlays({ guessLocation, target, distancePath, summaryModalOpen, allPo
               return (
                 <React.Fragment key={i}>
                   <Marker position={shift(gLL, d)} icon={guessIcon} />
-                  <Marker position={shift(tLL, d)} icon={actualIcon} />
+                  <ActualStar position={shift(tLL, d)} lat={path[0].lat} lng={path[0].lng} preview />
                   <Polyline
                     positions={[shift(tLL, d), shift(gLL, d)]}
                     color="#e63946"
