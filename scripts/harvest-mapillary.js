@@ -20,32 +20,17 @@ const OUT = path.join(__dirname, '..', 'src', 'data', 'mapillary.json');
 const GRAPH = 'https://graph.mapillary.com/images';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Curated, globally balanced cities with Mapillary coverage. [lat, lng]
-const CITIES = [
-  // Europe
-  [51.507, -0.127], [48.857, 2.352], [40.416, -3.703], [41.385, 2.173], [41.902, 12.496],
-  [52.370, 4.895], [48.208, 16.373], [50.075, 14.437], [38.722, -9.139], [47.376, 8.541],
-  [59.329, 18.068], [60.169, 24.938], [59.913, 10.752], [52.229, 21.012], [47.497, 19.040],
-  [37.983, 23.727], [53.349, -6.260], [50.846, 4.351], [45.464, 9.190], [50.110, 8.682],
-  // North America
-  [40.712, -74.006], [41.878, -87.629], [37.774, -122.419], [34.052, -118.243], [47.606, -122.332],
-  [42.360, -71.058], [43.651, -79.347], [49.282, -123.120], [45.501, -73.567], [25.761, -80.191],
-  [30.267, -97.743], [39.739, -104.990], [38.907, -77.036], [32.715, -117.161], [36.169, -115.139],
-  // Latin America
-  [-23.550, -46.633], [-22.906, -43.172], [-34.603, -58.381], [-33.448, -70.669], [-12.046, -77.042],
-  [4.711, -74.072], [19.432, -99.133], [20.659, -103.349], [-34.901, -56.164], [6.244, -75.581],
-  // Africa
-  [-1.286, 36.817], [-33.924, 18.424], [-26.204, 28.047], [30.044, 31.235], [33.589, -7.603],
-  [36.806, 10.181], [14.716, -17.467], [5.603, -0.187], [0.347, 32.582], [-4.043, 39.668],
-  // Asia
-  [35.681, 139.767], [34.693, 135.502], [37.566, 126.978], [13.756, 100.501], [1.352, 103.819],
-  [3.139, 101.687], [-6.208, 106.846], [14.599, 120.984], [21.028, 105.804], [10.823, 106.630],
-  [25.033, 121.565], [22.319, 114.169], [19.076, 72.877], [28.613, 77.209], [12.972, 77.595],
-  [41.008, 28.978], [32.085, 34.781], [25.205, 55.271], [41.716, 44.827], [43.222, 76.851],
-  // Oceania
-  [-33.868, 151.209], [-37.814, 144.963], [-27.470, 153.021], [-36.848, 174.763], [-41.286, 174.776],
-  [-31.950, 115.860],
-];
+// Seed from the same globally-balanced city list the live game uses, sampling a
+// subset (the bundled pool is only an instant-start / offline fallback, so it
+// doesn't need to cover all 10k). Random global points almost never hit
+// Mapillary coverage, so we seed from cities and resolve a nearby image.
+const SAMPLE_CITIES = 250;
+const allCities = require('../src/data/mapillary-cities.json');
+for (let i = allCities.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [allCities[i], allCities[j]] = [allCities[j], allCities[i]];
+}
+const CITIES = allCities.slice(0, SAMPLE_CITIES);
 
 // City centre plus a couple of ~5 km offsets, so we collect a few images spread
 // across the metro rather than all in one block.

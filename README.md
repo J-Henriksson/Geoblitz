@@ -4,54 +4,67 @@ GeoBlitz is a web-based game where players are dropped into a random street-leve
 
 GeoBlitz can be played in one of two interchangeable ways:
 
-* **Google mode**: classic Google Street View + Google Maps (requires a Google Maps API key).
-* **Free / no-Google-key mode**: random geotagged 360° panoramas from Wikimedia Commons, rendered with [Pannellum](https://pannellum.org/), over a [Leaflet](https://leafletjs.com/) guess map.
+* **Free mode (default, no key needed):** live street-level imagery from [Mapillary](https://www.mapillary.com/), drawn each round from a random one of ~10,000 globally-distributed cities. If a live lookup fails, it falls back to a bundled set of Mapillary images, then to geotagged 360° panoramas from Wikimedia Commons (rendered with [Pannellum](https://pannellum.org/)).
+* **Google Street View mode (optional):** classic Google Street View, enabled by entering your own Google Maps API key in-app.
 
-**No keys are required to play free mode.** A Google key is optional for Google Street View mode.
-
-Both modes follow the exact same game loop (5 rounds, distance scoring, summary).
+Both modes share the same guess map ([Leaflet](https://leafletjs.com/) + OpenStreetMap) and the same game loop: 5 rounds, Haversine distance scoring, and a summary.
 
 ### Features
-* Randomized Wikimedia Commons panorama locations
-* Works without a Google key
-* Optional Google Street View with a Google Maps key
-* Instant no-key rounds from a local Wikimedia Commons panorama dataset
-* Haversine distance scoring with a 5-round summary
+* Effectively unlimited, globally-spread locations via live Mapillary
+* Plays instantly with no API key
+* Optional Google Street View by adding a Google Maps key in-app
+* Mobile layout: fullscreen street view with a slide-up guess map
+* GeoGuessr-style compass, distance scoring, and 5-round summary
 
 ## Development Stack
-* **Frontend:** React.js
-* **Maps:** Google Maps API *or* Leaflet + OpenStreetMap
-* **Panoramas:** Google Street View *or* Pannellum
+* **Frontend:** React.js (Create React App)
+* **Guess map:** Leaflet + OpenStreetMap
+* **Panoramas:** Mapillary (mapillary-js) / Pannellum, or Google Street View
 
-## How to Play
+## Running locally
 
 ### 1. Install dependencies
 ```bash
 npm install
 ```
 
-### 2. Run the app
+### 2. (Optional) Set the Mapillary token
+Free mode uses a Mapillary access token, baked in at build time. Create a `.env.local` file:
+```
+REACT_APP_MAPILLARY_TOKEN=MLY|your|token
+```
+Get a free token at the [Mapillary developer dashboard](https://www.mapillary.com/dashboard/developers). Without a token, free mode falls back to the bundled Wikimedia Commons panoramas. (`.env.local` is gitignored; restart the dev server after changing it.)
+
+### 3. Run the app
 ```bash
 npm start
 ```
 
-### 3. (Optional) Add a Google Maps key
-Open the settings gear (top-right corner) at any time to add, change, or clear it:
+### 4. (Optional) Use Google Street View
+Click **Use Google Maps API** (or the in-game cogwheel), paste a Google Maps API key, and the game switches to Google Street View mode. Get a key from the [Google Cloud Console](https://console.cloud.google.com/). The key is stored only in your browser's `localStorage`.
 
-* **Google Maps API key**: enables Google Street View mode. Get one from the
-  [Google Cloud Console](https://console.cloud.google.com/).
-
-The Google key is stored in your browser's `localStorage`. Free mode uses the
-bundled Wikimedia Commons panorama dataset and does not require any API key.
-
-## Maintaining the static panorama library
-
-The free-mode panoramas live in `src/data/locations.json` and are generated from
-geotagged, CC-licensed equirectangular images on Wikimedia Commons:
+## Deploying to GitHub Pages
 
 ```bash
-npm run harvest:panoramas
+npm run deploy
 ```
 
-The script discovers candidates, keeps only true 2:1 equirectangular images with
-GPS coordinates, and verifies every image URL loads before writing the file.
+This builds the app (using your local `.env.local` token) and pushes the output to the `gh-pages` branch. In the repo's **Settings → Pages**, set the source to **Deploy from a branch → `gh-pages` → `/ (root)`**. The live URL is configured via the `homepage` field in `package.json`.
+
+Note: the Mapillary token is a public client token, so it is visible in the deployed JavaScript. This is expected and carries no billing risk; regenerate it in the Mapillary dashboard if it is ever abused.
+
+## Regenerating the location data
+
+Two bundled datasets back the live sources (both are committed, so you only need to regenerate them to refresh the pools):
+
+* **`src/data/mapillary-cities.json`** is the ~10,000 seed cities the live game samples from.
+* **`src/data/mapillary.json`** is a bundled set of verified Mapillary images for an instant first round and offline fallback. Regenerate it (samples a subset of the seed cities) with:
+  ```bash
+  REACT_APP_MAPILLARY_TOKEN=MLY|your|token npm run harvest:mapillary
+  ```
+* **`src/data/locations.json`** is the Wikimedia Commons panorama fallback (geotagged, 2:1 equirectangular, every URL verified). Regenerate with:
+  ```bash
+  npm run harvest:panoramas
+  ```
+
+Run the harvest scripts with the dev server stopped (they rewrite data files, which would otherwise trigger hot reloads).
