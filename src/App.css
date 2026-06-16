@@ -826,10 +826,31 @@ html, body, #root {
   .map-container.map-open {
     transform: translateY(0);
   }
+  /* Guess button to the bottom-right, so it clears the center step arrows */
   .map-toggle {
     display: inline-flex;
+    left: auto;
+    right: 18px;
+    transform: none;
   }
   .map-collapse {
     display: flex;
+  }
+  /* Compass + zoom to the bottom-left (also keeping the center clear).
+     bottom:27px aligns the compass centre with the 58px guess button's centre
+     (button bottom 22px + (58-48)/2). */
+  .gg-compass {
+    left: 16px;
+    right: auto;
+    bottom: 27px;
+  }
+  .streetview-container .mapillary-zoom-container {
+    /* centered over the compass (compass: left 16px + width 48px → centre 40px),
+       lowered a touch, scaled around its centre so it stays aligned */
+    left: 24px;
+    right: auto;
+    bottom: 86px;
+    transform: scale(1.15);
+    transform-origin: bottom center;
   }
 }
