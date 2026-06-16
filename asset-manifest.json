@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Geoblitz/static/css/main.71d6069e.css",
-    "main.js": "/Geoblitz/static/js/main.c0bf7503.js",
+    "main.js": "/Geoblitz/static/js/main.6b901b2f.js",
     "static/js/453.d3ba71ff.chunk.js": "/Geoblitz/static/js/453.d3ba71ff.chunk.js",
     "static/media/globe.png": "/Geoblitz/static/media/globe.5d0609edad9c71c5f3ec.png",
     "index.html": "/Geoblitz/index.html",
     "main.71d6069e.css.map": "/Geoblitz/static/css/main.71d6069e.css.map",
-    "main.c0bf7503.js.map": "/Geoblitz/static/js/main.c0bf7503.js.map",
+    "main.6b901b2f.js.map": "/Geoblitz/static/js/main.6b901b2f.js.map",
     "453.d3ba71ff.chunk.js.map": "/Geoblitz/static/js/453.d3ba71ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71d6069e.css",
-    "static/js/main.c0bf7503.js"
+    "static/js/main.6b901b2f.js"
   ]
 }
