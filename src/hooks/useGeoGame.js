@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { getDistance } from '../utils/geo';
+import { fetchWikiSummary } from '../services/wiki';
 
 export const TOTAL_ROUNDS = 5;
 const CONFETTI_THRESHOLD_KM = 5; // celebrate a guess this close to the target
@@ -33,6 +34,11 @@ export default function useGeoGame(loadNextLocation) {
       const { target: nextTarget, ...rest } = result;
       setTarget(nextTarget);
       setProviderData(rest);
+      // Warm the Wikipedia cache now, while the player studies the panorama, so
+      // the "what's here?" card is ready the instant the result star appears
+      // instead of starting its lookup only after the guess is confirmed. The
+      // service dedupes by coordinate, so the later render reuses this promise.
+      if (nextTarget) fetchWikiSummary(nextTarget.lat, nextTarget.lng);
     } catch (error) {
       console.error('Failed to load next location:', error);
     } finally {
